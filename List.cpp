@@ -15,13 +15,13 @@ void menu()
 
 // Runs through the master linked list, displays each student’s name,
 // and prompts if he/she was absent for the current day.
-void markAbsent() // need something in this parameter
+void markAbsent(Node *masterList) // need something in this parameter
 {
   
 }
 
 // Reads the .csv course file and overwrites the master linked list.
-void getCourseList(Node list)
+void getCourseList(Node *report)
 {
   // need to include ifstream
   ifstream file("file.csv");
@@ -41,7 +41,12 @@ void getCourseList(Node list)
 // Populates the master linked list with previous nodes from master.txt.
 void printMasterList() // do i need anything in this parameter?
 {
-  
+  // read from the master.txt and display what is in master.txt
+  // check if the master.txt has anything
+  if() // is not empty
+  {
+    // print out the txt
+  }
 }
 
 /* Prompts for an ID number or name of student to edit. 
@@ -51,13 +56,58 @@ void printMasterList() // do i need anything in this parameter?
  * 2. Generate report for students with absences that match or exceed (the number entered by the user). 
  * 3. Generate date report.
 */
-void generateReport() // do i need anything in this parameter?
+void generateReport(Node *report)
 {
+  int choice = 0;
+  // give the 3 choices
+  cout << "1. Generate report for all students." << endl;
+  cout << "2. Generate report for students with absences that match or exceed." << endl;
+  cout << "3. Generate date report." << endl;
+  cout << "Choice: ";
+  cin >> choice;
+  cout << endl;
   
+  if (choice == 1)
+  {
+    // generate report for all students
+    for() // do i have to use for loop? or while loop?
+    {
+      
+    }
+  }
+  // if the user chose #2 then ask for the absences number
+  else if(choice == 2)
+  {
+    int absences = 0;
+    cout << "Please enter the number of absences: ";
+    cin >> absences;
+    
+    // generate the report
+    for () // do i have to use for loop? or while loop?
+    {
+      
+    }
+  }
+  else if(choice == 3)
+  {
+    // generate date report
+    
+  }
+  else
+  {
+    // if the users input number other than 1,2, or 3
+    // ask them do re input the number
+    cout << "Please choose from these three choices."<< endl;
+    generateReport(*report); // recursion
+  }
 }
 
 // Stores the contents of the master linked list’s nodes to master.txt.
 void storeMasterList() // do i need anything in this parameter?
 {
+  // get the contents which is from csv file
+  getCourseList(Node *report);
   
+  // move it to master.txt
+  // how? is the questions -_-;;;
 }
