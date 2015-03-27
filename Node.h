@@ -4,12 +4,15 @@
 
 // includes
 #include <iostream>
+#include <ifstream>
 #include <string>
 
 //usings
 using std::cin;
 using std::cout;
 using std::endl;
+using std::string;
+using std::ifstream;
 
 using std::string;
 
