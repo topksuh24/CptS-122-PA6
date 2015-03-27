@@ -1,3 +1,7 @@
+
+#ifndef LIST_H
+#define LIST_H
+
 #include "Node.h"
 
 // need to include anything else?
@@ -28,12 +32,15 @@ class List
     
     // other functions
     void menu();
-    void markAbsent();
-    void getCourseList();
+    void markAbsent(Node *masterList);
+    void getCourseList(Node *report);
     void printMasterList();
-    void generateReport();
+    void generateReport(Node *report);
     void storeMasterList();
     
   private:
     Node *list;
+    Node *master; // do i need this?
 };
+
+#endif
