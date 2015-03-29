@@ -23,13 +23,7 @@ class List
 	//friend class Node;
   
 	// public
-	public:
-		// constructor
-		List(); // default
-    
-		// destructor
-		~List();
-    
+	public:    
 		// other functions
 		void menu();
 		void markAbsent(Node *masterList);
