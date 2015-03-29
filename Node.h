@@ -64,7 +64,7 @@ class Node
 		string major;
 		string gradeLevel; // freshman, sophomore, junior, or senior
 		int absent; // number of absences
-		string date[]; // storing dates when the student is absent
+		string date[10]; // storing dates when the student is absent
 };
 
 #endif
