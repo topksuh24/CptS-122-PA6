@@ -21,68 +21,89 @@ void List::markAbsent(Node *masterList) // need something in this parameter
 }
 
 // Reads the .csv course file and overwrites the master linked list.
-void List::getCourseList(Node *report, ifstream &file)
+void List::getCourseList(Node *report)
 {
   // need to include ifstream
-  //ifstream file("file.csv");
+  ifstream file("file.csv");
   string value = "";
   // check if there is a file
-  if(file != NULL) // got the file
+  // as long as file can be read then continue
+  while(file.good()) // got the file
   {
-	// get all the lines and set it
-    string value;
+		// file is there
+		// get all the lines and set it
+		string value;
 
-	getline ( file, value, ',' );
-	(*report).setRecord(atoi(value.c_str()));
+		// first name
+		cout << "First Name: ";
+		getline (file, value, ' '); 
+		(*report).setFirst(value);
 
-	// ID
-	getline ( file, value, ',' ); 
-	(*report).setID(atoi(value.c_str()));
+		// last name
+		cout << "Last Name: ";
+		getline (file, value, ',');
+		(*report).setLast(value);
 
-	// first name
-	getline ( file, value, ' ' ); 
-	(*report).setFirst(value);
+		// ID
+		cout << "ID Number: ";
+		getline (file, value, ','); 
+		(*report).setID(atoi(value.c_str()));
 
-	// last name
-	getline (file, value, ',');
-	(*report).setLast(value);
+		// record
+		cout << "Record: ";
+		getline (file, value, ',');
+		(*report).setRecord(atoi(value.c_str()));
 
-	// email
-	getline ( file, value, ',' ); 
-	(*report).setEmail(value);
+		// email
+		cout << "Email: ";
+		getline (file, value, ','); 
+		(*report).setEmail(value);
 
-	// unit/credit
-	getline ( file, value, ',' ); 
-	(*report).setUnits(value); // is this correct? i have no idea
+		// unit/credit
+		cout << "Unit: ";
+		getline (file, value, ','); 
+		(*report).setUnits(value); // is this correct? i have no idea
 
-	// major
-	getline ( file, value, ',' ); 
-	(*report).setMajor(value);
+		// major
+		cout << "Major: ";
+		getline (file, value, ','); 
+		(*report).setMajor(value);
 
-	// level
-	getline ( file, value, '\n' ); 
-	(*report).setLevel(value);
-  }
-  else // .csv file was not found
-  {
-    // you dont do anything?
-  }
+		// level
+		cout << "Level: ";
+		getline (file, value, '\n'); 
+		(*report).setLevel(value);
+	}
+	// does not exist then you dont do anything?
 }
 
 // Populates the master linked list with previous nodes from master.txt.
-void List::printMasterList(ifstream &master) // do i need anything in this parameter?
+void List::printMasterList(Node *report) // do i need anything in this parameter?
 {
-  // read from the master.txt and display what is in master.txt
-  // check if the master.txt exists
-  if(master) // is this correct? // is not empty
-  {
-    // print out the txt
-	  cout << "File already exists." << endl;
-  }
-  if(!master) // is this also correct?
-  {
-	  cout << "File is not there." << endl;
-  }
+	// read from the master.txt and display what is in master.txt
+	ifstream master;
+	master.open("master.txt", ios::in);
+
+	// check if the master.txt exists
+	if(master.fail()) // is this correct? // is empty
+	{
+		// print out the txt
+		cout << "File does not exists." << endl;
+		// create master.txt
+		master.open("master.txt", ios::out);
+
+		// use getCourseList() function to get all the lines
+		getCourseList(report);
+
+		// now write all the lines in txt file
+		// how do i write it to txt file
+		master.write(); // what do i need to put in here?
+	}
+	else // is this also correct?
+	{
+		master.close();
+		cout << "File already exist." << endl;
+	}
 }
 
 /* Prompts for an ID number or name of student to edit. 
