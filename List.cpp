@@ -15,7 +15,7 @@ void List::menu()
 
 // Runs through the master linked list, displays each student’s name,
 // and prompts if he/she was absent for the current day.
-void List::markAbsent(Node *masterList) // need something in this parameter
+void List::markAbsent(Node *masterList)
 {
 	// ask the user whether the student was absent or not
 	// first display each student's anem
@@ -135,7 +135,7 @@ void List::printMasterList(Node *masterList)
 	master.open("master.txt", ios::in);
 
 	// check if the master.txt exists
-	if(master.fail()) // is empty
+	if(master.fail())
 	{
 		// print out the txt
 		cout << "File does not exists." << endl;
@@ -290,7 +290,7 @@ void List::generateReport(Node *report)
 }
 
 // Stores the contents of the master linked list’s nodes to master.txt.
-void List::storeMasterList(Node *masterList) // do i need anything in this parameter?
+void List::storeMasterList(Node *masterList)
 {
 	// get the contents which is from csv file
 	// read from the master.txt and display what is in master.txt
