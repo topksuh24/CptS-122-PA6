@@ -1,7 +1,7 @@
 #include "List.h"
 
 // At startup of the program a menu must be displayed. The menu must provide six options.
-void menu()
+void List::menu()
 {
   cout << "Welcome Professor/TA! What would you like to do today?" << endl;
   cout << "1. Import Course List" << endl;
@@ -15,37 +15,73 @@ void menu()
 
 // Runs through the master linked list, displays each student’s name,
 // and prompts if he/she was absent for the current day.
-void markAbsent(Node *masterList) // need something in this parameter
+void List::markAbsent(Node *masterList) // need something in this parameter
 {
   
 }
 
 // Reads the .csv course file and overwrites the master linked list.
-void getCourseList(Node *report)
+void List::getCourseList(Node *report, ifstream &file)
 {
   // need to include ifstream
-  ifstream file("file.csv");
+  //ifstream file("file.csv");
   string value = "";
   // check if there is a file
   if(file != NULL) // got the file
   {
-    // overwrite the master linked list
-    
+	// get all the lines and set it
+    string value;
+
+	getline ( file, value, ',' );
+	(*report).setRecord(atoi(value.c_str()));
+
+	// ID
+	getline ( file, value, ',' ); 
+	(*report).setID(atoi(value.c_str()));
+
+	// first name
+	getline ( file, value, ' ' ); 
+	(*report).setFirst(value);
+
+	// last name
+	getline (file, value, ',');
+	(*report).setLast(value);
+
+	// email
+	getline ( file, value, ',' ); 
+	(*report).setEmail(value);
+
+	// unit/credit
+	getline ( file, value, ',' ); 
+	(*report).setUnits(value); // is this correct? i have no idea
+
+	// major
+	getline ( file, value, ',' ); 
+	(*report).setMajor(value);
+
+	// level
+	getline ( file, value, '\n' ); 
+	(*report).setLevel(value);
   }
   else // .csv file was not found
   {
-    // you dont do anything
+    // you dont do anything?
   }
 }
 
 // Populates the master linked list with previous nodes from master.txt.
-void printMasterList() // do i need anything in this parameter?
+void List::printMasterList(ifstream &master) // do i need anything in this parameter?
 {
   // read from the master.txt and display what is in master.txt
-  // check if the master.txt has anything
-  if() // is not empty
+  // check if the master.txt exists
+  if(master) // is this correct? // is not empty
   {
     // print out the txt
+	  cout << "File already exists." << endl;
+  }
+  if(!master) // is this also correct?
+  {
+	  cout << "File is not there." << endl;
   }
 }
 
@@ -56,7 +92,7 @@ void printMasterList() // do i need anything in this parameter?
  * 2. Generate report for students with absences that match or exceed (the number entered by the user). 
  * 3. Generate date report.
 */
-void generateReport(Node *report)
+void List::generateReport(Node *report)
 {
   int choice = 0;
   // give the 3 choices
@@ -103,7 +139,7 @@ void generateReport(Node *report)
 }
 
 // Stores the contents of the master linked list’s nodes to master.txt.
-void storeMasterList() // do i need anything in this parameter?
+void List::storeMasterList() // do i need anything in this parameter?
 {
   // get the contents which is from csv file
   getCourseList(Node *report);
