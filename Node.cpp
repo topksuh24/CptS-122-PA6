@@ -68,6 +68,12 @@ string Node::getLevel()
   return gradeLevel;
 }
 
+// get number of absences
+int Node::getAbsent()
+{
+	return absent;
+}
+
 // setting record number
 void Node::setRecord(int newRecord)
 {
@@ -118,4 +124,16 @@ void Node::setLevel(string newLevel)
 {
   // freshman, sophomore, junior, or senior
   gradeLevel = newLevel;
+}
+
+// setting dates
+void Node::setDate(string newDate, int index)
+{
+	date[index] = newDate;
+}
+
+// setting absences
+void Node::setAbsent(int newAbsent)
+{
+	absent = newAbsent;
 }
