@@ -7,7 +7,7 @@
 // need to include anything else?
 // should also include everything that are from Node.h
 #include <iostream>
-#include <ifstream>
+#include <fstream>
 #include <string>
 
 using std::cin;
@@ -33,8 +33,8 @@ class List
     // other functions
     void menu();
     void markAbsent(Node *masterList);
-    void getCourseList(Node *report);
-    void printMasterList();
+    void getCourseList(Node *report, ifstream &file);
+    void printMasterList(ifstream &master);
     void generateReport(Node *report);
     void storeMasterList();
     
