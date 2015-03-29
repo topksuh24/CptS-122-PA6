@@ -21,100 +21,100 @@ Node::~Node()
 
 // getters and setters
 // get record number
-int getRecord()
+int Node::getRecord()
 {
   return recordNum;
 }
 
 // get id number
-int getID()
+int Node::getID()
 {
   return idNum;
 }
 
 // get first name
-string getFirst()
+string Node::getFirst()
 {
   return firstName;
 }
 
 // get last name
-string getLast()
+string Node::getLast()
 {
   return lastName;
 }
 
 // get email
-string getEmail()
+string Node::getEmail()
 {
   return email;
 }
 
 // get credits/units
-string getUnits()
+string Node::getUnits()
 {
   return units;
 }
 
 // get major
-string getMajor()
+string Node::getMajor()
 {
   return major;
 }
 
 // get grade level
-string getLevel()
+string Node::getLevel()
 {
   return gradeLevel;
 }
 
 // setting record number
-void setRecord(int newRecord)
+void Node::setRecord(int newRecord)
 {
   // max 3 digits
   recordNum = newRecord;
 }
 
 // setting id number
-void setID (int newID)
+void Node::setID (int newID)
 {
   // max 9 digits
   idNum = newID;
 }
 
 // setting first name
-void setFirst(string newFirst)
+void Node::setFirst(string newFirst)
 {
   firstName = newFirst;
 }
 
 // setting last name
-void setLast(string newLast)
+void Node::setLast(string newLast)
 {
   lastName = newLast;
 }
 
 // setting email
-void setEmail(string newEmail)
+void Node::setEmail(string newEmail)
 {
   email = newEmail;
 }
 
 // setting credits/units
-void setUnits(string newUnits)
+void Node::setUnits(string newUnits)
 {
   // number of credits for class or AU for audit
   units = newUnits;
 }
 
 // setting major
-void setMajor(string newMajor)
+void Node::setMajor(string newMajor)
 {
   major = newMajor;
 }
 
 // setting grade level
-void setLevel(string newLevel)
+void Node::setLevel(string newLevel)
 {
   // freshman, sophomore, junior, or senior
   gradeLevel = newLevel;
