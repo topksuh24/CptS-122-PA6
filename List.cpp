@@ -3,14 +3,14 @@
 // At startup of the program a menu must be displayed. The menu must provide six options.
 void List::menu()
 {
-  cout << "Welcome Professor/TA! What would you like to do today?" << endl;
-  cout << "1. Import Course List" << endl;
-  cout << "2. Load Master List" << endl;
-  cout << "3. Store Master List" << endl;
-  cout << "4. Mark Absences" << endl;
-  cout << "5. Generate Report" << endl;
-  cout << "6. Exit" << endl;
-  cout << "Input: " << endl;
+	cout << "Welcome Professor/TA! What would you like to do today?" << endl;
+	cout << "1. Import Course List" << endl;
+	cout << "2. Load Master List" << endl;
+	cout << "3. Store Master List" << endl;
+	cout << "4. Mark Absences" << endl;
+	cout << "5. Generate Report" << endl;
+	cout << "6. Exit" << endl;
+	cout << "Input: " << endl;
 }
 
 // Runs through the master linked list, displays each student’s name,
@@ -78,13 +78,13 @@ void List::markAbsent(Node *masterList) // need something in this parameter
 // Reads the .csv course file and overwrites the master linked list.
 void List::getCourseList(Node *masterList)
 {
-  // need to include ifstream
-  ifstream file("file.csv");
-  string value = "";
-  // check if there is a file
-  // as long as file can be read then continue
-  while(file.good()) // got the file
-  {
+	// need to include ifstream
+	ifstream file("file.csv");
+	string value = "";
+	// check if there is a file
+	// as long as file can be read then continue
+	while(file.good()) // got the file
+	{
 		// file is there
 		// get all the lines and set it
 		string value;
