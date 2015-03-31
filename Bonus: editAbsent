@@ -1,0 +1,57 @@
+// editing absent
+void List::editAbsent(int index)
+{
+	char choice = '\0';
+	if(head == NULL)
+	{
+		cout <<endl <<  "¡Ø System Message: no data." << endl << endl; 
+	}
+	else
+	{
+		Node *ptr=head;
+		// use the for loop to set tail
+		for(int i = 0; i<index; i++)
+		{
+			ptr=ptr->tail;
+		}
+		do
+		{
+			// ask the user whether the user wants to edit the student's absent data
+			cout << "Woul you like to edit " << ptr->data.name << " absent data?(Y/N): ";
+			cin >> choice;
+		}while(choice !='Y' && choice !='N' && choice !='y' && choice !='n'); // keep asking if the user does not enter either y or n
+		
+		if(choice == 'Y' || choice == 'y')
+		{
+			int absentNum = 0;
+			int i = 0;
+			string absentDate;
+			// ask which day this student was absent
+			cout << endl << "Which day was this student absent?: ";
+			cin >> absentDate;
+			// use loop to go through the array
+			while ((i < index) && (ptr->data.date_absent[i] != absentDate)) // as long as it doesnt reach to max AND the date is not found
+			{
+				i++;
+			}
+			string tempDate = absentDate;
+			// ask how many time was this student absent
+			cout << endl << "How would you change this student's absent number?: ";
+			cin >> absentNum;
+			// tell the user that it has been changed
+			cout << endl << "¡Ø System Message: " << ptr->data.name << "'s absent data has been updated!" << endl;
+			while (i < index) // you do this so you can move the arrays forward
+			{
+				int next = i;
+				ptr->data.date_absent[i] = ptr->data.date_absent[next++];
+				i++;
+			}
+			// change the absent for that student
+			ptr->data.n_absent = absentNum;
+		}
+		else if (choice == 'N' || choice == 'n')
+		{
+				// you dont need to do anything if the answer is no
+		}
+	}
+}
